@@ -1,9 +1,8 @@
 import styles from "../styles/Layout.module.css";
-import Carousel from "../components/Carousel";
-export default function Home() {
+
+export default function Home({ content }) {
   return (
     <>
-      <Carousel />
       <main className={styles.main}>
         <>
           <h1 className={styles.title}>Welcome to My Home Page</h1>

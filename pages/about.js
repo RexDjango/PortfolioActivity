@@ -1,29 +1,20 @@
-import aboutContent from "./about.data";
 import styles from "../styles/About.module.css";
 
-export const Banner = (props) => {
-  return (
-    <div className={styles.Banner}>
-      <div className={styles.pageTitle}>
-        <h1 className="text-center">{props.title}</h1>
-        <p></p>
-        <h4
-          className="text-center"
-          dangerouslySetInnerHTML={{ __html: props.hero_content }}
-        ></h4>
-      </div>
-    </div>
-  );
+export const getStaticProps = async () => {
+  const res = await fetch("https://www.zesty.io/-/gql/about.json");
+  const data = await res.json();
+
+  return {
+    props: {
+      content: data,
+    },
+  };
 };
 
-export default function about() {
-  var divImage = {
-    backgroundImage:
-      "url('https://kfg6bckb.media.zestyio.com/zesty-product-shot-right-side.jpg')",
-  };
+export default function about({ content }) {
   return (
     <>
-      {aboutContent.map((aboutItem, index) => (
+      {content.map((aboutItem, index) => (
         <main className={styles.aboutBg} key={index}>
           <div
             className={styles.Banner}

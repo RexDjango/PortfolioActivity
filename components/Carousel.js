@@ -1,4 +1,4 @@
-import carouselItems from "./Carousel.data";
+import carouselContent from "./Carousel.data";
 
 export default function Carousel() {
   return (
@@ -31,7 +31,7 @@ export default function Carousel() {
           ></button>
         </div>
         <div className="carousel-inner">
-          {carouselItems.map((carouselItem, index) => (
+          {carouselContent.map((carouselItem, index) => (
             <div className={carouselItem.carouselStatus} key={index}>
               <img
                 src={carouselItem.image}
